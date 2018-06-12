@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<table>
+
+    <thead>
+    <tr>
+        <th>用户id</th>
+        <th>名字</th>
+        <th>年龄</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${userList}">
+        <th scope="row" th:text="${user.id}"></th>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.age}"></td>
+        <td><a th:href="@{/user/{id}/delete(id=${user.id})}">删除</a></td>
+    </tr>
+    </tbody>
+</table>
+
+<div><a href="/user/add">新增用户</a></div>
+</body>
+</html>
